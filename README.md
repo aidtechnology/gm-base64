@@ -1,23 +1,30 @@
 # gm-base64
 
-A plugin for gm node module, which converts img to base64 string
+A plugin for gm node module, which converts an image to a base64 string or data URI.
+
+Forked and adapted from https://github.com/didikeke/gm-base64
+
+Additions:
+- Added documentation using documentation.js
+- Auto-detect format of image (this may affect conversion speed)
+- Edited code to use const/let instead of var
 
 ## Installation
 
-    $ npm install gm-base64
+    $ npm install https://github.com/aidtechnology/gm-base64
 
 ## Usage
 
 With DataUri:
 
 ```
-var gm = require('gm');
+const gm = require('gm');
 require('gm-base64');
 
-var toDataUri = true;
+let toDataUri = true;
 gm('a.jpg')
   .resize(384)
-  .toBase64('bmp', toDataUri, function(err, base64){
+  .toBase64(toDataUri, function(err, base64){
     console.log(base64);
   });
 
@@ -31,7 +38,7 @@ require('gm-base64');
 
 gm('a.jpg')
   .resize(384)
-  .toBase64('bmp', function(err, base64){
+  .toBase64(function(err, base64){
     console.log(base64);
   });
 
