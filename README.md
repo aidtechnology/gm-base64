@@ -8,6 +8,8 @@ Additions:
 - Added documentation using documentation.js
 - Auto-detect format of image (this may affect conversion speed)
 - Edited code to use const/let instead of var
+- Added unit tests using mocha/chai
+- Added .gitignore and package-lock.json
 
 ## Installation
 
