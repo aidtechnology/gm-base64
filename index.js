@@ -48,11 +48,11 @@ gm.prototype.toBase64 = function(toDataUri, callback) {
       .on('end', function() {
         let buffer = new Buffer(buf, 'binary');
         gm(buffer).format(function (err, format) {
+            if (err) {
+              return callback(err);
+            }
             format = format.toLowerCase();
             debug('format', format);
-            if (err) {
-                throw err;
-            }
             let result = buffer.toString('base64');
             if(toDataUri) {
               result = "data:image/" + format + ";base64,"  + result;
